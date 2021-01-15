@@ -1,0 +1,163 @@
+<html>
+   <head>
+    <link rel="icon" href="BackGround/iconLogo.PNG">
+    <title>GAME INDEX</title>
+        <link rel="stylesheet" href="StyleSheet.css">
+        <link rel="stylesheet" href="navstyle.css">
+        <link rel="stylesheet" href="categories.css">
+        <link rel="stylesheet" href="engine.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>   
+    <body>
+        <div id="container">
+            <div id="navigasyon">
+                <ul>
+                   <li id="left"class="middle"> <a href="index.html">HOME</a></li>
+                   <a href="index.html"><img width="7%" style="margin-left: 42%; position: absolute;" src="BackGround/SiteLogo.PNG"> </a>
+                    <li id="left"> <a href="engine.html">ENGINES</a></li>
+                    
+                    <li id="right"> <a href="contact.html">CONTACT</a></li>
+
+                </ul>
+            </div>
+            
+            <div id="content">
+                <div id="enginemenu"> 
+                       <ul>
+                           <li>
+                            <a href="unity.html">UNITY3D ENGINE</a>
+                           </li>
+                           <li>
+                               <a href="unreal.html">UNREAL ENGINE</a>
+                           </li>      
+                </div>
+                <div id="info">
+                   
+                    <div id="engine">
+                        <h1>GAME ENGINES</h1>
+                        <hr>
+
+                        <h2>OYUN MOTORU NEDİR?</h2>
+                        <center>
+                        <article>
+                            Oyun motoru, kişilerin veya şirketlerin oyun yapmak amacıyla kullandığı ücretli 
+                            veya ücretsiz olan programlara verilen isimdir. Bu program, esasında kütüphanelerden 
+                            oluşmuş bir yapıdır. Bu kütüphanelerin içinde bilgisayar programlama dilleri ile tanımlanmış 
+                            fonksiyonlar, sınıflar vb. veriler bulunmaktadır. Kişi oyun motorunu kullandığında, başkası 
+                            tarafından önceden tanımlanmış olan bu verileri kullanarak oyununu yapar. Bu oyun motoru 
+                            denilen yapının kişiye sağladığı fayda; kişiyi önceden başkası tarafından kodlanarak tanımlanmış 
+                            olan bu verileri yeniden kodlama zahmetinden kurtarması ve bunun sonucunda daha az kod ve 
+                            bunun getirdiği daha az karmaşıklık ve aynı zamanda, zamandan tasarruf etmesini sağlar.
+                        </article>
+                    </center> 
+                        <h2>BİR OYUN MOTORUNDA NELER VARDIR?</h2>
+                        <center>
+                        <h3>2D/3D Renderer, (2D/3D Görüntü İşleyici)</h3>
+                        <article>
+                            Rendering, ekrandaki görüntünün, 
+                            GPU ve/veya CPU vasıtası ile çizilme/işlenme işlemidir. <br>
+                            Ekranda görmüş olduğunuz her görüntü, sabit ya da hareketli olduğu 
+                            farketmeksizin “renderer” olarak adlandırılan bileşen tarafından işlenir. 
+                        </article>
+
+                        <h3>Physics Engine (Fizik Motoru)</h3>
+                        <article>
+                            Oyun motorlarında “Fizik Motoru” olarak adlandırılan bir bileşen bulunur. 
+                            Bu bileşen sayesinde geliştirdiğiniz oyundaki objeler kendi fiziksel özelliklerine sahip olurlar 
+                            (kütle, sürtünme katsayısı, kütle merkezi vb.) 
+                            ve çeşitli kuvvetlerden (hız, yer çekimi, sürükleme kuvveti vb.) etkilenirler. 
+                            Objelerin dünya ile ve birbirleriyle fiziksel olarak etkileşmesi gerektiği bir oyun 
+                            geliştirdiğinizde oyun motorunuzun bu bileşene sahip olması gerekir. 
+                            Fizik motorunuzu kullanarak dilerseniz gerçekçi, dilerseniz olabildiğine uçuk kendi 
+                            fizik kurallarınızın hakim olduğu oyunlar geliştirebilirsiniz. <br> <br>
+
+                            Fizik motoru aynı zamanda “Collision Detection & Response” (“Çarpışma Algılayıcı 
+                            ve Çarpışmaya Tepki Verici”) adı verilen bileşeni içerir. 
+                            Objelerin oyunda İki objenin çarpışması yani birbirine değmesi olayına 
+                            ise “collision” (çarpışma) denir. Objelerin fiziksel olarak kapladığı alanı ise, 
+                            “collider” adı verilen, çeşitli geometrik şekillerde ve boyutlarda olan bileşenler 
+                            ile belirlenir. Daha önce oynamış olduğunuz oyunlarda  “hitbox” terimini duymuşsunuzdur, 
+                            bir collider, hitbox’ın şeklini ve boyutunu belirleyen bileşendir. Oyun motorlarında ise, 
+                            hem collider’ları objelerinize dilediğiniz şekilde ekleyebileceğiniz, ve bu 
+                            collider’ların birbiri ile çarpıştığında çeşitli fonksiyonlar tetikleyebileceğiniz 
+                            “collision detection” sistemleri bulunur. Bu sistemler sayesinde örneğin bir dövüş 
+                            oyunu geliştirdiğinizde, bir yumruk collider’ı, bir düşman collider’ı ile çarpıştığında, 
+                            düşmanın üzerindeki “Sağlık” betiğinde “Hasar Ver” isimli bir fonksiyonu tetiklemesini 
+                            sağlayabilirsiniz. <br>
+                        </article>
+
+                        <h3>Scripting (Betikleme/Betik Yazımı) Desteği</h3>
+                        <article>
+                            Oyun motorlarında oyun geliştirirken, objelere mantık ekleyebilmek için çeşitli script’ler (betik) yazmanız gerekir. Bu işleme scripting denir.
+                             Geleneksel programlamadan farklı olarak scripting sayesinde:
+                             <ul>
+                                 <li>
+                                    Script’ler, run-time (çalışma-zamanı) sırasında derlenir. 
+                                    Bu sayede oyununuzda yapmış olduğunuz her script değişikliğinde oyunu başından 
+                                    sonuna kadar derlemek zorunda kalmazsınız. Kullanmadığınız takdirde projeniz her 
+                                    yaptığınız değişiklikte oyununuz compile-time (derleme zamanı) sırasında derlenir. 
+                                    Compile-time ise saatler alabilen bir süreç olduğu için, oyununuzu scripting 
+                                    kullanarak run-time sırasında derlemek, 
+                                    üretim hızınızı hatrı sayılır derecede etkileyecektir.
+                                 </li>
+                                 <li>
+                                    Oyun programlama sürecinizi kolaylaşır.
+                                    (özellikle programlamaya yeni başlayan geliştiriciler için.)
+                                 </li>
+                                 <li>
+                                    Oyunun motorunun kodlarının, oyunun kodlarından bağımsız/ayrı olmasını sağlar.
+                                    Bu sayede hem motorun aynı bileşenlerini kullanarak, 
+                                    üzerinde değişiklik yapmak zorunda kalmadan çeşitli oyunlar geliştirebilirsiniz.
+                                 </li>
+                             </ul>
+                             <article>Oyun objelerine scripting aracılığı ile ekleyebileceğiniz mantıklara:</article>
+                             <ul>
+                                
+                                <li>
+                                    Kullanıcıdan input (girdi) almak ve sonucunda bir fonksiyon tetiklemek,
+                                </li>
+                                <li>
+                                    Animasyon oynatmak,
+                                </li>
+                                <li>Ses efekti/müzik dosyası yürütmek vb. örnek verilebilir</li>
+                             </ul>
+                        </article>
+
+                        <h3>Audio Engine (Ses Motoru)</h3>
+                        <article>
+                            Oyunlarda ses, oyun deneyimini büyük bir ölçüde etkileyen bir faktördür. 
+                            Bu nedenle geliştirdiğiniz oyunda ses dosyalarını yürütme fonksiyonu kesinlikle gerekir. 
+                            Oyununuzda yürüteceğiniz, farklı formatlardaki (“.mp4”,”.mp3”,”.ogg”,”.wav” vb.) her ses dosyasının, 
+                            oyun motorunuza eklenmesi ve compress edildiği/sıkıştırıldığı dosya formatını CPU aracılığı 
+                            ile decompress edip/ayıklayıp, dilediğiniz zaman yürütebilmenizi sağlayan bileşendir. 
+                            Bu bileşen olmadan, oyununuz herhangi bir şekilde ses dosyası yürütemez, bu nedenle önemli ve 
+                            olmazsa olmaz bir bileşendir.
+                        </article>
+
+                        <h3>Artificial Intelligence (Yapay Zeka)</h3>
+                        <article>
+                            Oyununuzda çoğu oyunda yer aldığı gibi eğer 
+                            “Artificial Intelligence” (Yapay Zeka) tarafından yönetilen objeler yer alacaksa, bu objelerin nasıl davranması gerektiğini script’lerken, çoğu oyun motorunun yapay zeka için kullanabileceğiniz 
+                            halihazırda programlamış olduğu modüllerden faydalanabilirsiniz.
+
+                            <ul>
+                                <li>Behavior Trees, (Davranış Ağaçları)</li>
+                                <li>Pathfinding, (Yol bulma/Yollama)</li>
+                                <li>Goal-Orientated Action Planning vb. (Hedef Odaklı Eylem Planlaması) 
+                                    gibi modüllere ihtiyaç duyar
+                                </li>
+                            </ul>
+                        </article>
+                    </center>
+                    </div>
+                       
+                </div>
+                
+            </div>
+
+            <div id="footer">
+                    
+            </div>
+        </div>
+    </body>
+</html>

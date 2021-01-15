@@ -1,0 +1,19 @@
+
+div#gamescreen h1{
+    text-align: center;
+}
+
+div#gamescreen h2{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    text-align: center;
+    font-size: 200%;
+}
+
+div#gamescreen hr{
+    
+    background-color: rgb(51, 47, 71);
+    border: 1px solid rgb(51, 47, 71);
+    box-shadow: 0px 0px 40px 5px  #f8f102;
+}
+
