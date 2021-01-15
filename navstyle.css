@@ -10,7 +10,7 @@ div#navigasyon ul{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(51, 47, 71);
 }
 
 
@@ -22,13 +22,17 @@ div#navigasyon li#right{
     float: right;
 }
 
+div#navigasyon li a:hover{
+  background-color: #f8f102;
+  color:rgb(51, 47, 71) ;
+}
 
-div#navigasyon .dropdown-content {
+/* div#navigasyon .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgb(51, 47, 71);
     z-index: 1;
   }
 
@@ -38,20 +42,22 @@ div#navigasyon .dropdown-content a {
     text-decoration: none;
     display: block;
     text-align: left;
-  }
+  } */
+/* 
+div#navigasyon .dropdown-content a:hover {
+  text-decoration: underline rgb(51, 47, 71);
+} */
 
-div#navigasyon .dropdown-content a:hover {background-color: #e41246;}
-
-div#navigasyon .dropdown:hover .dropdown-content {
+/* div#navigasyon .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } */
 
 div#navigasyon li a:hover, .dropdown:hover{
-    background-color: #7e6fd1;
+  text-decoration: underline;
   }
 
 div#navigasyon li a , dropdown{
-    display: inline-block;
+  display: inline-block;
   color: white;
   text-align: center;
   padding: 14px 16px;
