@@ -40,7 +40,7 @@ div#navigasyon .dropdown-content a {
     text-align: left;
   }
 
-div#navigasyon .dropdown-content a:hover {background-color: #7e6fd1;}
+div#navigasyon .dropdown-content a:hover {background-color: #e41246;}
 
 div#navigasyon .dropdown:hover .dropdown-content {
     display: block;
