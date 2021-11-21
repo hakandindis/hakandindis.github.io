@@ -35,6 +35,35 @@ window.onload = function init() {
   var program = initShaders(gl, "vertex-shader", "fragment-shader");
   gl.useProgram(program);
 
+  window.onkeydown = function (event) {
+    var key = String.fromCharCode(event.keyCode);
+    switch (key) {
+      case "W":
+        positionDirection = "up";
+        changePosition();
+        break;
+      case "A":
+        positionDirection = "left";
+        changePosition();
+        break;
+      case "S":
+        positionDirection = "down";
+        changePosition();
+        break;
+      case "D":
+        positionDirection = "right";
+        changePosition();
+        break;
+    }
+  };
+
+  document.getElementById("slide").onchange = function () {
+    scale[0] = this.value * 0.01;
+    scale[1] = this.value * 0.01;
+
+    drawScene();
+  };
+
   var rightButton = document.getElementById("rightButton");
   rightButton.addEventListener("click", function () {
     positionDirection = "right";
@@ -225,15 +254,11 @@ function drawScene() {
   // Set clear color of canvas, fully opaque
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
-
   // Draw the geometry.
   var primitiveType = gl.TRIANGLES;
   var offset = 0;
   var count = 48; // 6 triangles in the 'F', 3 points per triangle
   gl.drawArrays(primitiveType, offset, count);
-  
-  
-  
 }
 
 function setGeometry() {
