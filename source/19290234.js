@@ -80,6 +80,18 @@ window.onload = function init() {
     changeRotation();
   });
 
+  var increaseScaleButton = document.getElementById("increaseScaleButton");
+  increaseScaleButton.addEventListener("click", function () {
+    scaleDirection = "increase";
+    changeScale();
+  });
+
+  var decreaseScaleButton = document.getElementById("decreaseScaleButton");
+  decreaseScaleButton.addEventListener("click", function () {
+    scaleDirection = "decrease";
+    changeScale();
+  });
+
   vertices = [
     //ABC
     vec2(-0.9, 0.7),
@@ -172,7 +184,7 @@ window.onload = function init() {
   theta = 0;
   translation = [0, 0, 0, 0];
   color = [Math.random(), Math.random(), Math.random(), 1];
-  scale = [1, 1, 0, 0];
+  scale = [0.75, 0.75, 0, 0];
 
   //gl.uniform1f(u_theta, theta);
 
@@ -254,4 +266,6 @@ function changeScale() {
     scale[0] -= 0.05;
     scale[1] -= 0.05;
   }
+
+  drawScene();
 }

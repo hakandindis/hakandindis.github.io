@@ -29,28 +29,12 @@
       Rotate Counter Clockwise
    </button>
 
-
-
-
-
-   <select id="mymenu" size="3">
-      <option value="0">
-         Toggle Rotation Direction X
-      </option>
-      <option value="1">Spin Faster</option>
-      <option value="2">Spin Slower</option>
-   </select>
-
-
-   <select id="" size="4">
-      <option value="0">
-         Change Color
-      </option>
-      <option value="1">Red</option>
-      <option value="2">Green</option>
-      <option value="3">Blue</option>
-   </select>
-
+   <button id="increaseScaleButton">
+      Increase Scale
+   </button>
+   <button id="decreaseScaleButton">
+      Decrease Scale
+   </button>
 
 </body>
 <script id="vertex-shader" type="x-shader/x-vertex">
@@ -63,13 +47,11 @@
    void main() {
 
       //gl_Position=vPosition + u_translation;
-      gl_Position.x = (cos(u_theta) * vPosition.x - sin(u_theta) * vPosition.y)+u_translation[0];
-	   gl_Position.y = (sin(u_theta) * vPosition.x + cos(u_theta) * vPosition.y)+u_translation[1];
+      gl_Position.x = ((cos(u_theta) * vPosition.x - sin(u_theta) * vPosition.y)+u_translation[0])*u_scale[0];
+	   gl_Position.y = ((sin(u_theta) * vPosition.x + cos(u_theta) * vPosition.y)+u_translation[1])*u_scale[1];
 	   gl_Position.z = 0.0;
 	   gl_Position.w = 1.0;
 
-
-      
    }
 
 </script>
