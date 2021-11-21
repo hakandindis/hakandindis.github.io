@@ -188,6 +188,10 @@ window.onload = function init() {
 
   //gl.uniform1f(u_theta, theta);
 
+  // Set clear color of canvas, fully opaque
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+
+  //drawScene();
   drawScene();
 };
 
@@ -218,11 +222,18 @@ function drawScene() {
   //set the rotation
   gl.uniform1f(u_theta, theta);
 
+  // Set clear color of canvas, fully opaque
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+
+
   // Draw the geometry.
   var primitiveType = gl.TRIANGLES;
   var offset = 0;
   var count = 48; // 6 triangles in the 'F', 3 points per triangle
   gl.drawArrays(primitiveType, offset, count);
+  
+  
+  
 }
 
 function setGeometry() {
