@@ -5,6 +5,10 @@ var u_theta;
 var theta;
 
 var vPosition;
+
+var u_scale;
+var scale;
+
 var u_translation;
 var translation;
 
@@ -15,7 +19,7 @@ var vertices;
 
 var positionDirection;
 var rotationDirection;
-
+var scaleDirection;
 window.onload = function init() {
   const canvas = document.querySelector("#glcanvas");
   gl = WebGLUtils.setupWebGL(canvas);
@@ -64,6 +68,7 @@ window.onload = function init() {
     "counterClockwiseRotationButton"
   );
   counterClockwiseRotationButton.addEventListener("click", function () {
+    rotationDirection = "counterClockwise";
     changeRotation();
   });
 
@@ -71,6 +76,7 @@ window.onload = function init() {
     "clockwiseRotationButton"
   );
   clockwiseRotationButton.addEventListener("click", function () {
+    rotationDirection = "clockwise";
     changeRotation();
   });
 
@@ -151,6 +157,8 @@ window.onload = function init() {
   vPosition = gl.getAttribLocation(program, "vPosition");
   u_translation = gl.getUniformLocation(program, "u_translation");
   u_color = gl.getUniformLocation(program, "u_color");
+  u_scale = gl.getUniformLocation(program, "u_scale");
+  u_theta = gl.getUniformLocation(program, "u_theta");
 
   //create a buffer to put positions in
   buffer = gl.createBuffer();
@@ -161,13 +169,12 @@ window.onload = function init() {
   //put geometry data into buffer
   setGeometry();
 
+  theta = 0;
   translation = [0, 0, 0, 0];
   color = [Math.random(), Math.random(), Math.random(), 1];
+  scale = [1, 1, 0, 0];
 
-  u_theta = gl.getUniformLocation(program, "u_theta");
-  theta = 0;
-
-  gl.uniform1f(u_theta, theta);
+  //gl.uniform1f(u_theta, theta);
 
   drawScene();
 };
@@ -193,7 +200,12 @@ function drawScene() {
   // Set the translation.
   gl.uniform4fv(u_translation, translation);
 
+  //set the scale
+  gl.uniform4fv(u_scale, scale);
+
+  //set the rotation
   gl.uniform1f(u_theta, theta);
+
   // Draw the geometry.
   var primitiveType = gl.TRIANGLES;
   var offset = 0;
@@ -226,10 +238,20 @@ function changeColor() {
 
 function changeRotation() {
   if (rotationDirection == "clockwise") {
-    theta += 10;
+    theta -= 0.1;
   } else {
-    theta -= 10;
+    theta += 0.1;
   }
 
   drawScene();
+}
+
+function changeScale() {
+  if (scaleDirection == "increase") {
+    scale[0] += 0.05;
+    scale[1] += 0.05;
+  } else {
+    scale[0] -= 0.05;
+    scale[1] -= 0.05;
+  }
 }
