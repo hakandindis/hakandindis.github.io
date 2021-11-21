@@ -62,9 +62,9 @@
 
    void main() {
 
-      gl_Position=vPosition + u_translation;
-      gl_Position.x = cos(u_theta) * vPosition.x - sin(u_theta) * vPosition.y;
-	   gl_Position.y = sin(u_theta) * vPosition.x + cos(u_theta) * vPosition.y;
+      //gl_Position=vPosition + u_translation;
+      gl_Position.x = (cos(u_theta) * vPosition.x - sin(u_theta) * vPosition.y)+u_translation[0];
+	   gl_Position.y = (sin(u_theta) * vPosition.x + cos(u_theta) * vPosition.y)+u_translation[1];
 	   gl_Position.z = 0.0;
 	   gl_Position.w = 1.0;
 
