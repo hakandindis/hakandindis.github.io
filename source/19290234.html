@@ -3,9 +3,36 @@
 <body>
    <canvas id="glcanvas" width="512" height="512"></canvas>
 
-   <button id="DirectionButton">
-      Change Rotation Direction
+
+   <button id="leftButton">
+      Left
    </button>
+   <button id="rightButton">
+      Right
+   </button>
+
+   <button id="upButton">
+      UP
+   </button>
+   <button id="downButton">
+      Down
+   </button>
+
+   <button id="colorButton">
+      Change Color
+   </button>
+
+
+   <button id="clockwiseRotationButton">
+      Rotate Clockwise
+   </button>
+   <button id="counterClockwiseRotationButton">
+      Rotate Counter Clockwise
+   </button>
+
+
+
+
 
    <select id="mymenu" size="3">
       <option value="0">
@@ -16,7 +43,7 @@
    </select>
 
 
-   <select id="colormenu" size="4">
+   <select id="" size="4">
       <option value="0">
          Change Color
       </option>
@@ -29,22 +56,28 @@
 </body>
 <script id="vertex-shader" type="x-shader/x-vertex">
    attribute vec4 vPosition;
-   uniform float theta;
+   uniform float u_theta;
+   uniform vec4 u_translation;
+   //uniform vec2 u_rotation;
+
    void main() {
-	gl_Position.x = cos(theta) * vPosition.x - sin(theta) * vPosition.y;
-	gl_Position.y = sin(theta) * vPosition.x + cos(theta) * vPosition.y;
-	gl_Position.z = 0.0;
-	gl_Position.w = 1.0;
-}
+
+      gl_Position=vPosition + u_translation;
+      gl_Position.x = cos(u_theta) * vPosition.x - sin(u_theta) * vPosition.y;
+	   gl_Position.y = sin(u_theta) * vPosition.x + cos(u_theta) * vPosition.y;
+	   gl_Position.z = 0.0;
+	   gl_Position.w = 1.0;
+
+
+      
+   }
 
 </script>
 <script id="fragment-shader" type="x-shader/x-fragment">
    precision mediump float;
-   //uniform vec4 fragment_color; 
+   uniform vec4 u_color; 
    void main() {
-      //fragment_color = vec4( 0.8, 0.5, 1.0, 0.4 );
-      gl_FragColor = vec4( 0.8, 0.5, 1.0, 0.4 );
-      //gl_FragColor = fragment_color;
+      gl_FragColor = u_color;
    }
 </script>
 

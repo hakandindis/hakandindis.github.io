@@ -1,19 +1,23 @@
 var gl;
-var theta;
-var thetaLoc;
-var color = [1.0, 0.0, 0.0, 1.0];
-var isDirClockwise = false;
-var delay = 50;
+var buffer;
 
-function changeRotation() {
-  isDirClockwise = !isDirClockwise;
-}
+var u_theta;
+var theta;
+
+var vPosition;
+var u_translation;
+var translation;
+
+var u_color;
+var color;
+
+var vertices;
+
+var positionDirection;
+var rotationDirection;
 
 window.onload = function init() {
   const canvas = document.querySelector("#glcanvas");
-  // Initialize the GL context
-
-  //gl = canvas.getContext("webgl");
   gl = WebGLUtils.setupWebGL(canvas);
 
   // Only continue if WebGL is available and working
@@ -27,34 +31,50 @@ window.onload = function init() {
   var program = initShaders(gl, "vertex-shader", "fragment-shader");
   gl.useProgram(program);
 
-  var myButton = document.getElementById("DirectionButton");
-  myButton.addEventListener("click", changeRotation);
-
-  var m = document.getElementById("mymenu");
-  m.addEventListener("click", function () {
-    switch (m.selectedIndex) {
-      case 0:
-        //direction = !direction;
-        break;
-      case 1:
-        delay /= 2.0;
-        break;
-      case 2:
-        delay *= 2.0;
-        break;
-    }
+  var rightButton = document.getElementById("rightButton");
+  rightButton.addEventListener("click", function () {
+    positionDirection = "right";
+    changePosition();
   });
 
-  var colors = {
-    red: new vec4(1, 0, 0, 1),
-    blue: new vec4(0, 0, 1, 1),
-    green: new vec4(0, 1, 0, 1),
-    yellow: new vec4(1, 1, 0, 1),
-    cyan: new vec4(0, 1, 1, 1),
-    magenta: new vec4(1, 0, 1, 1),
-  };
+  var leftButton = document.getElementById("leftButton");
+  leftButton.addEventListener("click", function () {
+    positionDirection = "left";
+    changePosition();
+  });
 
-  var vertices = [
+  var upButton = document.getElementById("upButton");
+  upButton.addEventListener("click", function () {
+    positionDirection = "up";
+    changePosition();
+  });
+
+  var downButton = document.getElementById("downButton");
+  downButton.addEventListener("click", function () {
+    positionDirection = "down";
+    changePosition();
+  });
+
+  var colorButton = document.getElementById("colorButton");
+  colorButton.addEventListener("click", function () {
+    changeColor();
+  });
+
+  var counterClockwiseRotationButton = document.getElementById(
+    "counterClockwiseRotationButton"
+  );
+  counterClockwiseRotationButton.addEventListener("click", function () {
+    changeRotation();
+  });
+
+  var clockwiseRotationButton = document.getElementById(
+    "clockwiseRotationButton"
+  );
+  clockwiseRotationButton.addEventListener("click", function () {
+    changeRotation();
+  });
+
+  vertices = [
     //ABC
     vec2(-0.9, 0.7),
     vec2(-0.9, -0.7), //
@@ -128,53 +148,88 @@ window.onload = function init() {
     vec2(0.7, -0.7), //
   ];
 
-  var colorLocation = gl.getUniformLocation(program, "fragment_colors");
-  gl.uniform4fv(colorLocation, color);
+  vPosition = gl.getAttribLocation(program, "vPosition");
+  u_translation = gl.getUniformLocation(program, "u_translation");
+  u_color = gl.getUniformLocation(program, "u_color");
 
-  var bufferId = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, bufferId);
-  gl.bufferData(gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW);
+  //create a buffer to put positions in
+  buffer = gl.createBuffer();
 
-  // Associate out shader variables with our data buffer
-  var vPosition = gl.getAttribLocation(program, "vPosition");
-  gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0);
-  gl.enableVertexAttribArray(vPosition);
+  //bind it to ARRAY_BUFFER (ARRAY_BUFFER = positionBuffer)
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 
-  thetaLoc = gl.getUniformLocation(program, "theta");
+  //put geometry data into buffer
+  setGeometry();
 
+  translation = [0, 0, 0, 0];
+  color = [Math.random(), Math.random(), Math.random(), 1];
+
+  u_theta = gl.getUniformLocation(program, "u_theta");
   theta = 0;
-  gl.uniform1f(thetaLoc, theta);
 
-  window.addEventListener("keydown", checkKeyPressed);
+  gl.uniform1f(u_theta, theta);
 
-  // Set clear color, fully opaque
-  gl.clearColor(0.0, 1.0, 1.0, 1.0);
-
-  requestAnimFrame(render);
+  drawScene();
 };
 
-function render() {
-  setTimeout(function () {
-    //requestAnimFrame(render);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    theta += isDirClockwise ? -0.05 : 0.05;
-    gl.uniform1f(thetaLoc, theta);
+function drawScene() {
+  //clear the canvas
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  // turn on the attribute
+  gl.enableVertexAttribArray(vPosition);
+  //bind the position buffer
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
+  var size = 2; // 2 components per iteration
+  var type = gl.FLOAT; // the data is 32bit floats
+  var normalize = false; // don't normalize the data
+  var stride = 0; // 0 = move forward size * sizeof(type) each iteration to get the next position
+  var offset = 0; // start at the beginning of the buffer
+  gl.vertexAttribPointer(vPosition, size, type, normalize, stride, offset);
 
-    //colorLocation = gl.getUniformLocation(program, "fragment_color");
+  // set the color
+  gl.uniform4fv(u_color, color);
 
-    //gl.uniform4fv(colorLocation, color);
+  // Set the translation.
+  gl.uniform4fv(u_translation, translation);
 
-    //gl.bufferData(gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW);
-
-    gl.drawArrays(gl.TRIANGLES, 0, 48);
-    render();
-  }, delay);
-
-  // Clear the color buffer with specified clear color
+  gl.uniform1f(u_theta, theta);
+  // Draw the geometry.
+  var primitiveType = gl.TRIANGLES;
+  var offset = 0;
+  var count = 48; // 6 triangles in the 'F', 3 points per triangle
+  gl.drawArrays(primitiveType, offset, count);
 }
 
-function checkKeyPressed(e) {
-  if (e.keyCode == "84") {
-    color = [Math.random(), Math.random(), Math.random(), 1];
+function setGeometry() {
+  gl.bufferData(gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW);
+}
+
+function changePosition() {
+  if (positionDirection == "right") {
+    translation[0] += 0.07;
+  } else if (positionDirection == "left") {
+    translation[0] -= 0.07;
+  } else if (positionDirection == "up") {
+    translation[1] += 0.07;
+  } else if (positionDirection == "down") {
+    translation[1] -= 0.07;
   }
+
+  drawScene();
+}
+
+function changeColor() {
+  color = [Math.random(), Math.random(), Math.random(), 1];
+  drawScene();
+}
+
+function changeRotation() {
+  if (rotationDirection == "clockwise") {
+    theta += 10;
+  } else {
+    theta -= 10;
+  }
+
+  drawScene();
 }
