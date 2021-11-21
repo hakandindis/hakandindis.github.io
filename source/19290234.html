@@ -1,0 +1,56 @@
+<html>
+
+<body>
+   <canvas id="glcanvas" width="512" height="512"></canvas>
+
+   <button id="DirectionButton">
+      Change Rotation Direction
+   </button>
+
+   <select id="mymenu" size="3">
+      <option value="0">
+         Toggle Rotation Direction X
+      </option>
+      <option value="1">Spin Faster</option>
+      <option value="2">Spin Slower</option>
+   </select>
+
+
+   <select id="colormenu" size="4">
+      <option value="0">
+         Change Color
+      </option>
+      <option value="1">Red</option>
+      <option value="2">Green</option>
+      <option value="3">Blue</option>
+   </select>
+
+
+</body>
+<script id="vertex-shader" type="x-shader/x-vertex">
+   attribute vec4 vPosition;
+   uniform float theta;
+   void main() {
+	gl_Position.x = cos(theta) * vPosition.x - sin(theta) * vPosition.y;
+	gl_Position.y = sin(theta) * vPosition.x + cos(theta) * vPosition.y;
+	gl_Position.z = 0.0;
+	gl_Position.w = 1.0;
+}
+
+</script>
+<script id="fragment-shader" type="x-shader/x-fragment">
+   precision mediump float;
+   //uniform vec4 fragment_color; 
+   void main() {
+      //fragment_color = vec4( 0.8, 0.5, 1.0, 0.4 );
+      gl_FragColor = vec4( 0.8, 0.5, 1.0, 0.4 );
+      //gl_FragColor = fragment_color;
+   }
+</script>
+
+<script src="../common/MV.js"></script>
+<script src="../common/initShaders.js"></script>
+<script src="../common/webgl-utils.js"></script>
+<script src="19290234.js"></script>
+
+</html>
