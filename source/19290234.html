@@ -1,46 +1,76 @@
 <html>
 
+<head>
+   <style>
+      canvas {
+         margin-top: 10;
+         margin-left: 50;
+      }
+
+      span{
+         margin-bottom: 200;
+      }
+   </style>
+
+
+</head>
+
+
+
 <body>
-   <canvas id="glcanvas" width="512" height="512"></canvas>
 
-   <button id="leftButton">
-      Left
-   </button>
-   <button id="rightButton">
-      Right
-   </button>
+   <span>
+      <canvas id="glcanvas" width="512" height="512"></canvas>
 
-   <button id="upButton">
-      UP
-   </button>
-   <button id="downButton">
-      Down
-   </button>
+   </span>
 
-   <button id="colorButton">
-      Change Color
-   </button>
+   <!--
+      <button id="leftButton">
+         Left
+      </button>
+      <button id="rightButton">
+         Right
+      </button>
+
+      <button id="upButton">
+         UP
+      </button>
+      <button id="downButton">
+         Down
+      </button>
+   -->
+
+   <span>
+      <button id="colorButton">
+         Change Color
+      </button>
+
+      <button id="clockwiseRotationButton">
+         Rotate Clockwise
+      </button>
+      <button id="counterClockwiseRotationButton">
+         Rotate Counter Clockwise
+      </button>
+   </span>
 
 
-   <button id="clockwiseRotationButton">
-      Rotate Clockwise
-   </button>
-   <button id="counterClockwiseRotationButton">
-      Rotate Counter Clockwise
-   </button>
+   <span id="left-side">
+      speed 0
+      <input id="slide" type="range" min="10" max="90" step="10" value="45" /> 100
+   </span>
 
-   <button id="increaseScaleButton">
+
+
+   <!--
+      <button id="increaseScaleButton">
       Increase Scale
    </button>
    <button id="decreaseScaleButton">
       Decrease Scale
    </button>
+   -->
 
 
-   <div>
-      speed 0 
-      <input id="slide" type="range" min="10" max="90" step="10" value="45" /> 100
-   </div>
 
 </body>
 <script id="vertex-shader" type="x-shader/x-vertex">

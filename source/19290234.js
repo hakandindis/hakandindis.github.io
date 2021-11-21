@@ -64,6 +64,7 @@ window.onload = function init() {
     drawScene();
   };
 
+  /*
   var rightButton = document.getElementById("rightButton");
   rightButton.addEventListener("click", function () {
     positionDirection = "right";
@@ -88,17 +89,11 @@ window.onload = function init() {
     changePosition();
   });
 
+  */
+
   var colorButton = document.getElementById("colorButton");
   colorButton.addEventListener("click", function () {
     changeColor();
-  });
-
-  var counterClockwiseRotationButton = document.getElementById(
-    "counterClockwiseRotationButton"
-  );
-  counterClockwiseRotationButton.addEventListener("click", function () {
-    rotationDirection = "counterClockwise";
-    changeRotation();
   });
 
   var clockwiseRotationButton = document.getElementById(
@@ -109,6 +104,15 @@ window.onload = function init() {
     changeRotation();
   });
 
+  var counterClockwiseRotationButton = document.getElementById(
+    "counterClockwiseRotationButton"
+  );
+  counterClockwiseRotationButton.addEventListener("click", function () {
+    rotationDirection = "counterClockwise";
+    changeRotation();
+  });
+
+  /*
   var increaseScaleButton = document.getElementById("increaseScaleButton");
   increaseScaleButton.addEventListener("click", function () {
     scaleDirection = "increase";
@@ -120,6 +124,8 @@ window.onload = function init() {
     scaleDirection = "decrease";
     changeScale();
   });
+
+  */
 
   vertices = [
     //ABC
@@ -193,6 +199,17 @@ window.onload = function init() {
     vec2(0.1, -0.5), //
     vec2(0.1, -0.7), //
     vec2(0.7, -0.7), //
+
+    /* Ş HARFİ NOKTASI */
+    //ABC
+    vec2(0.4, -0.8), //
+    vec2(0.4, -1.0), //
+    vec2(0.6, -1.0), //
+
+    //ADC
+    vec2(0.4, -0.8), //
+    vec2(0.6, -0.8), //
+    vec2(0.6, -1.0), //
   ];
 
   vPosition = gl.getAttribLocation(program, "vPosition");
@@ -257,7 +274,7 @@ function drawScene() {
   // Draw the geometry.
   var primitiveType = gl.TRIANGLES;
   var offset = 0;
-  var count = 48; // 6 triangles in the 'F', 3 points per triangle
+  var count = 54; // 6 triangles in the 'F', 3 points per triangle
   gl.drawArrays(primitiveType, offset, count);
 }
 
