@@ -57,7 +57,7 @@ window.onload = function init() {
     }
   };
 
-  document.getElementById("slide").onchange = function () {
+  document.getElementById("slider").onchange = function () {
     scale[0] = this.value * 0.01;
     scale[1] = this.value * 0.01;
 
@@ -262,7 +262,7 @@ function drawScene() {
 
   // Set the translation.
   gl.uniform4fv(u_translation, translation);
-
+ 
   //set the scale
   gl.uniform4fv(u_scale, scale);
 
@@ -298,7 +298,8 @@ function changePosition() {
 }
 
 function changeColor() {
-  color = [Math.random(), Math.random(), Math.random(), 1];
+  //color = [Math.random(), Math.random(), Math.random(), 1];
+  color = [Math.random(), Math.random(), Math.random(),Math.random() ];
   drawScene();
 }
 
