@@ -63,7 +63,7 @@
                <button class="button" id="colorButton">
                   Change Color
                </button>
-   
+
                <button class="button" id="clockwiseRotationButton">
                   Rotate Clockwise
                </button>
@@ -71,7 +71,7 @@
                   Rotate Counter Clockwise
                </button>
             </center>
-            
+
          </span>
 
          <div id="left-side">
@@ -86,52 +86,14 @@
 
    </div>
 
-
-   <!--
-      <button id="leftButton">
-         Left
-      </button>
-      <button id="rightButton">
-         Right
-      </button>
-
-      <button id="upButton">
-         UP
-      </button>
-      <button id="downButton">
-         Down
-      </button>
-   -->
-
-
-
-
-
-
-
-
-   <!--
-      <button id="increaseScaleButton">
-      Increase Scale
-   </button>
-   <button id="decreaseScaleButton">
-      Decrease Scale
-   </button>
-   -->
-
-
-
 </body>
 <script id="vertex-shader" type="x-shader/x-vertex">
    attribute vec4 vPosition;
    uniform float u_theta;
    uniform vec4 u_translation;
    uniform vec4 u_scale;
-   //uniform vec2 u_rotation;
-
    void main() {
 
-      //gl_Position=vPosition + u_translation;
       gl_Position.x = ((cos(u_theta) * vPosition.x - sin(u_theta) * vPosition.y)+u_translation[0])*u_scale[0];
 
 	   gl_Position.y = ((sin(u_theta) * vPosition.x + cos(u_theta) * vPosition.y)+u_translation[1])*u_scale[1];

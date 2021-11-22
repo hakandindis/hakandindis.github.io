@@ -64,33 +64,6 @@ window.onload = function init() {
     drawScene();
   };
 
-  /*
-  var rightButton = document.getElementById("rightButton");
-  rightButton.addEventListener("click", function () {
-    positionDirection = "right";
-    changePosition();
-  });
-
-  var leftButton = document.getElementById("leftButton");
-  leftButton.addEventListener("click", function () {
-    positionDirection = "left";
-    changePosition();
-  });
-
-  var upButton = document.getElementById("upButton");
-  upButton.addEventListener("click", function () {
-    positionDirection = "up";
-    changePosition();
-  });
-
-  var downButton = document.getElementById("downButton");
-  downButton.addEventListener("click", function () {
-    positionDirection = "down";
-    changePosition();
-  });
-
-  */
-
   var colorButton = document.getElementById("colorButton");
   colorButton.addEventListener("click", function () {
     changeColor();
@@ -111,21 +84,6 @@ window.onload = function init() {
     rotationDirection = "counterClockwise";
     changeRotation();
   });
-
-  /*
-  var increaseScaleButton = document.getElementById("increaseScaleButton");
-  increaseScaleButton.addEventListener("click", function () {
-    scaleDirection = "increase";
-    changeScale();
-  });
-
-  var decreaseScaleButton = document.getElementById("decreaseScaleButton");
-  decreaseScaleButton.addEventListener("click", function () {
-    scaleDirection = "decrease";
-    changeScale();
-  });
-
-  */
 
   vertices = [
     //ABC
@@ -262,7 +220,7 @@ function drawScene() {
 
   // Set the translation.
   gl.uniform4fv(u_translation, translation);
- 
+
   //set the scale
   gl.uniform4fv(u_scale, scale);
 
@@ -299,7 +257,7 @@ function changePosition() {
 
 function changeColor() {
   //color = [Math.random(), Math.random(), Math.random(), 1];
-  color = [Math.random(), Math.random(), Math.random(),Math.random() ];
+  color = [Math.random(), Math.random(), Math.random(), Math.random()];
   drawScene();
 }
 
