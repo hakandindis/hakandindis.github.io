@@ -8,6 +8,7 @@ var vPosition;
 
 var u_scale;
 var scale;
+var current_value;
 
 var u_translation;
 var translation;
@@ -20,6 +21,7 @@ var vertices;
 var positionDirection;
 var rotationDirection;
 var scaleDirection;
+
 window.onload = function init() {
   const canvas = document.querySelector("#glcanvas");
   gl = WebGLUtils.setupWebGL(canvas);
@@ -58,10 +60,10 @@ window.onload = function init() {
   };
 
   document.getElementById("slider").onchange = function () {
-    scale[0] = this.value * 0.01;
-    scale[1] = this.value * 0.01;
 
-    drawScene();
+    current_value=this.value;
+
+    changeScale();
   };
 
   var colorButton = document.getElementById("colorButton");
@@ -183,20 +185,16 @@ window.onload = function init() {
   //bind it to ARRAY_BUFFER (ARRAY_BUFFER = positionBuffer)
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 
-  //put geometry data into buffer
-  setGeometry();
+  gl.bufferData(gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW);
 
   theta = 0;
   translation = [0, 0, 0, 0];
   color = [Math.random(), Math.random(), Math.random(), 1];
-  scale = [0.75, 0.75, 0, 0];
-
-  //gl.uniform1f(u_theta, theta);
+  scale = [0.45, 0.45, 0, 0];
 
   // Set clear color of canvas, fully opaque
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
-  //drawScene();
   drawScene();
 };
 
@@ -217,28 +215,18 @@ function drawScene() {
 
   // set the color
   gl.uniform4fv(u_color, color);
-
   // Set the translation.
   gl.uniform4fv(u_translation, translation);
-
   //set the scale
   gl.uniform4fv(u_scale, scale);
-
   //set the rotation
   gl.uniform1f(u_theta, theta);
-
-  // Set clear color of canvas, fully opaque
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
   // Draw the geometry.
   var primitiveType = gl.TRIANGLES;
   var offset = 0;
-  var count = 54; // 6 triangles in the 'F', 3 points per triangle
+  var count = 54;
   gl.drawArrays(primitiveType, offset, count);
-}
-
-function setGeometry() {
-  gl.bufferData(gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW);
 }
 
 function changePosition() {
@@ -272,13 +260,9 @@ function changeRotation() {
 }
 
 function changeScale() {
-  if (scaleDirection == "increase") {
-    scale[0] += 0.05;
-    scale[1] += 0.05;
-  } else {
-    scale[0] -= 0.05;
-    scale[1] -= 0.05;
-  }
+
+  scale[0] = current_value*0.01;
+  scale[1] = current_value*0.01;
 
   drawScene();
 }
