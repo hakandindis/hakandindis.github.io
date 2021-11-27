@@ -56,15 +56,48 @@ window.onload = function init() {
         positionDirection = "right";
         changePosition();
         break;
+      case "Q":
+        rotationDirection = "clockwise";
+        changeRotation();
+        break;
+      case "E":
+        rotationDirection = "counterClockwise";
+        changeRotation();
+        break;
+      case "R":
+        changeColor();
     }
   };
 
   document.getElementById("slider").onchange = function () {
-
-    current_value=this.value;
+    current_value = this.value;
 
     changeScale();
   };
+
+  var upButton = document.getElementById("upButton");
+  upButton.addEventListener("click", function () {
+    positionDirection = "up";
+    changePosition();
+  });
+
+  var downButton = document.getElementById("downButton");
+  downButton.addEventListener("click", function () {
+    positionDirection = "down";
+    changePosition();
+  });
+
+  var leftButton = document.getElementById("leftButton");
+  leftButton.addEventListener("click", function () {
+    positionDirection = "left";
+    changePosition();
+  });
+
+  var rightButton = document.getElementById("rightButton");
+  rightButton.addEventListener("click", function () {
+    positionDirection = "right";
+    changePosition();
+  });
 
   var colorButton = document.getElementById("colorButton");
   colorButton.addEventListener("click", function () {
@@ -260,9 +293,8 @@ function changeRotation() {
 }
 
 function changeScale() {
-
-  scale[0] = current_value*0.01;
-  scale[1] = current_value*0.01;
+  scale[0] = current_value * 0.01;
+  scale[1] = current_value * 0.01;
 
   drawScene();
 }

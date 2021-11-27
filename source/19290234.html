@@ -3,16 +3,19 @@
 <head>
    <style>
       .button {
+         margin-top: 5px;
+         margin-bottom: 5px;
          width: 50%;
          background-color: rgb(255, 255, 255);
          /* Green */
          border-radius: 12px;
          border: none;
          color: rgb(223, 6, 243);
-         padding: 15px 32px;
+         padding: 12px 28px;
          text-align: center;
          text-decoration: none;
-         display: inline-block;
+         /*display: inline-block; */
+         float: left;
          font-size: 16px;
          border: 2px solid #0990DF;
          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -43,37 +46,70 @@
 
 <body>
    <div style="width: 100%;">
-      <div style="width: 50%; float: left;">
-         <canvas id="glcanvas" width="700" height="700"></canvas>
-      </div>
-      <div style="width: 45%; float: right; ">
-         <h1 style="color: blueviolet;">HAKAN DINDIŞ</h1>
-         <h1 style="color: blueviolet;">19290234</h1>
-         <h1 style="color: hsl(39, 100%, 50%);">HARFLERİ HAREKET ETTİRMEK İÇİN </h1>
-         <h1 style="color: hsl(39, 100%, 50%);">W, A, S, D TUŞLARINI KULLANABİLİRSİNİZ </h1>
+      <div style="width: 45%; float: left; font-size: 12;">
+         <h1 style="color: blueviolet; ">HAKAN DINDIŞ / 19290234</h1>
+
+
+         <div style="font-size: 15;">
+            <center>
+               <h1>SCALE</h1>
+               0<input class="slider" id="slider" type="range" min="10" max="90" step="10" value="45" /> 100
+            </center>
+         </div>
+
          <span>
             <center>
-
-               <button class="button" id="colorButton">
-                  Change Color
+               <h1 style="color: hsl(39, 100%, 50%);">HARFLERİ HAREKET ETTİRMEK İÇİN </h1>
+               <h1 style="color: hsl(39, 100%, 50%);">W, A, S, D TUŞLARINI KULLANABİLİRSİNİZ </h1>
+               <button class="button" id="upButton">
+                  UP
                </button>
 
+               <button class="button" id="rightButton">
+                  RIGHT
+               </button>
+               <button class="button" id="downButton">
+                  DOWN
+               </button>
+               <button class="button" id="leftButton">
+                  LEFT
+               </button>
+
+            </center>
+         </span>
+
+         <span>
+            <center>
+               <h1 style="color: hsl(133, 91%, 46%);">HARFLERİN ROTASYONUNU DEĞİŞTİRMEK İÇİN </h1>
+               <h1 style="color: hsl(133, 91%, 46%);">Q VE E TUŞLARINI KULLANABİLİRSİNİZ </h1>
                <button class="button" id="clockwiseRotationButton">
                   Rotate Clockwise
                </button>
                <button class="button" id="counterClockwiseRotationButton">
                   Rotate Counter Clockwise
                </button>
-
             </center>
          </span>
-         <div id="left-side">
+
+
+
+         <div>
             <center>
-               <h1>SCALE</h1>
-               0<input class="slider" id="slider" type="range" min="10" max="90" step="10" value="45" /> 100
+               <h1 style="color: hsl(202, 96%, 44%);">HARFLERİN RENGİNİ DEĞİŞTİRMEK İÇİN </h1>
+               <h1 style="color: hsl(202, 96%, 44%);">R TUŞUNU KULLANABİLİRSİNİZ</h1>
+               <button class="button" id="colorButton">
+                  Change Color
+               </button>
             </center>
          </div>
+
       </div>
+
+
+      <div style="width: 50%; float: right;">
+         <canvas id="glcanvas" width="700" height="700"></canvas>
+      </div>
+
    </div>
 </body>
 <script id="vertex-shader" type="x-shader/x-vertex">
