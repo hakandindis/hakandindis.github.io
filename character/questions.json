@@ -1,17 +1,19 @@
 [
     {
         "id":1,
+        "category":"film",
         "question":"Mustafar'da Anakin'i yenen jedi kimdir?",
         "corrent_answer":"Obi-Wan Kenobi",
         "answers": [
             "Yoda",
             "Ahsoka Tano",
             "Obi-Wan Kenobi",
-            "Kont Dooke"
+            "Count Dooku"
         ]
     },
     {
         "id":2,
+        "category":"film",
         "question":"",
         "corrent_answer":"",
         "answers": [
@@ -23,6 +25,7 @@
     },
     {
         "id":3,
+        "category":"dizi",
         "question":"",
         "corrent_answer":"",
         "answers": [
@@ -34,6 +37,7 @@
     },
     {
         "id":4,
+        "category":"dizi",
         "question":"",
         "corrent_answer":"",
         "answers": [
