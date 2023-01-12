@@ -1,50 +1,50 @@
 [
-    {
-        "id":1,
-        "category":"film",
-        "question":"Mustafar'da Anakin'i yenen jedi kimdir?",
-        "corrent_answer":"Obi-Wan Kenobi",
-        "answers": [
-            "Yoda",
-            "Ahsoka Tano",
-            "Obi-Wan Kenobi",
-            "Count Dooku"
-        ]
-    },
-    {
-        "id":2,
-        "category":"film",
-        "question":"",
-        "corrent_answer":"",
-        "answers": [
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "id":3,
-        "category":"dizi",
-        "question":"",
-        "corrent_answer":"",
-        "answers": [
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "id":4,
-        "category":"dizi",
-        "question":"",
-        "corrent_answer":"",
-        "answers": [
-            "",
-            "",
-            "",
-            ""
-        ]
-    }
+  {
+    "id": 1,
+    "category": "film",
+    "question": "Qui-Gonn kimin öğrencisidir?",
+    "answer": "Obi-Wan Kenobi",
+    "user_answer": "",
+    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+  },
+  {
+    "id": 2,
+    "category": "film",
+    "question": "Mustafar'da Anakin'i yenen jedi kimdir?",
+    "answer": "Obi-Wan Kenobi",
+    "user_answer": "",
+    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+  },
+  {
+    "id": 3,
+    "category": "film",
+    "question": "Anakin kimin öğrencisidir?",
+    "answer": "Obi-Wan Kenobi",
+    "user_answer": "",
+    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+  },
+  {
+    "id": 4,
+    "category": "dizi",
+    "question": "Count Dooku'nun ustası kimdir?",
+    "answer": "Obi-Wan Kenobi",
+    "user_answer": "",
+    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+  },
+  {
+    "id": 5,
+    "category": "dizi",
+    "question": "Lord Sidius kimdir?",
+    "answer": "Obi-Wan Kenobi",
+    "user_answer": "",
+    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+  },
+  {
+    "id": 6,
+    "category": "dizi",
+    "question": "Mustafar'da Anakin'i yenen jedi kimdir?",
+    "answer": "Obi-Wan Kenobi",
+    "user_answer": "",
+    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+  }
 ]
