@@ -2,7 +2,7 @@
   {
     "id": 1,
     "category": "film",
-    "question": "Qui-Gonn kimin öğrencisidir?",
+    "question": "Qui-Gon Jinn'in öğrencisi kimdir?",
     "answer": "Obi-Wan Kenobi",
     "user_answer": "",
     "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "category": "film",
-    "question": "Mustafar'da Anakin'i yenen jedi kimdir?",
+    "question": "Mustafar'da Anakin Skywalker'ı yenen jedi kimdir?",
     "answer": "Obi-Wan Kenobi",
     "user_answer": "",
     "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
@@ -27,24 +27,24 @@
     "id": 4,
     "category": "dizi",
     "question": "Count Dooku'nun ustası kimdir?",
-    "answer": "Obi-Wan Kenobi",
+    "answer": "Yoda",
     "user_answer": "",
     "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
   },
   {
     "id": 5,
     "category": "dizi",
-    "question": "Lord Sidius kimdir?",
-    "answer": "Obi-Wan Kenobi",
+    "question": "Continental Hotel nerededir?",
+    "answer": "New York City",
     "user_answer": "",
-    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+    "options": ["New York City", "Ankara", "Paris", "Londra"]
   },
   {
     "id": 6,
     "category": "dizi",
-    "question": "Mustafar'da Anakin'i yenen jedi kimdir?",
-    "answer": "Obi-Wan Kenobi",
+    "question": "John Wick bir kurşun kalemle kaç kişi öldürmüştür?",
+    "answer": "3",
     "user_answer": "",
-    "options": ["Yoda", "Ahsoka Tano", "Obi-Wan Kenobi", "Count Dooku"]
+    "options": ["1", "2", "3", "4"]
   }
 ]
